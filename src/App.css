@@ -1,0 +1,357 @@
+.App {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.App-header h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.App-main {
+  padding: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.loading,
+.error,
+.no-data {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.error {
+  color: #d32f2f;
+}
+
+.error button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.error button:hover {
+  background-color: #1565c0;
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 75vw;
+  height: 75vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-wrapper {
+  flex: 1;
+  overflow: auto;
+  min-height: 0;
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.data-table thead {
+  background-color: #1976d2;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.data-table th {
+  padding: 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-table tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.data-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.data-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.data-table td {
+  padding: 14px 16px;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.patient-name-link {
+  color: #1976d2;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.patient-name-link:hover {
+  color: #1565c0;
+  text-decoration: underline;
+}
+
+/* Patient Detail Page */
+.detail-container {
+  width: 90vw;
+  max-width: 1440px;
+  min-width: 720px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: calc(85vh * 1.2);
+  overflow: auto;
+}
+
+.back-button {
+  padding: 6px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  align-self: flex-start;
+  transition: background-color 0.2s;
+  width: fit-content;
+  max-width: 68%;
+}
+
+.back-button:hover {
+  background-color: #1565c0;
+}
+
+.patient-detail-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.patient-info {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.patient-info h2 {
+  margin: 0 0 15px 0;
+  color: #333;
+  font-size: 1.5rem;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 12px;
+  font-size: 0.95rem;
+}
+
+.info-grid div {
+  padding: 8px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #e0e0e0;
+}
+
+.info-grid strong {
+  color: #1976d2;
+  margin-right: 8px;
+}
+
+.ecg-charts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Pagination Footer */
+.pagination-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background-color: #f9f9f9;
+  border-top: 1px solid #e0e0e0;
+  gap: 20px;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.pagination-pages {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.page-btn {
+  padding: 6px 12px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  min-width: 36px;
+  transition: all 0.2s;
+}
+
+.page-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #1976d2;
+}
+
+.page-btn.active {
+  background-color: #1976d2;
+  color: white;
+  border-color: #1976d2;
+  font-weight: 600;
+}
+
+.page-btn.active:hover {
+  background-color: #1565c0;
+}
+
+.page-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.page-ellipsis {
+  padding: 6px 8px;
+  color: #999;
+  font-size: 0.9rem;
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination-label {
+  font-size: 0.9rem;
+  color: #666;
+  margin-right: 5px;
+}
+
+.pagination-btn {
+  padding: 8px 16px;
+  background-color: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.pagination-btn:hover {
+  background-color: #f5f5f5;
+  border-color: #1976d2;
+}
+
+.pagination-btn.active {
+  background-color: #1976d2;
+  color: white;
+  border-color: #1976d2;
+}
+
+.pagination-btn.active:hover {
+  background-color: #1565c0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .App-main {
+    padding: 15px;
+  }
+
+  .App-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .table-container {
+    overflow-x: auto;
+  }
+
+  .data-table {
+    min-width: 600px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+
+  .pagination-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 15px;
+  }
+
+  .pagination-info {
+    text-align: center;
+    font-size: 0.85rem;
+  }
+
+  .pagination-pages {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .pagination-controls {
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .pagination-btn,
+  .page-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+}

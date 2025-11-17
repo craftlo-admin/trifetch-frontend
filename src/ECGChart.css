@@ -1,0 +1,125 @@
+.ecg-chart-container {
+  margin-bottom: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 8px;
+  min-width: 240px;
+  width: 81.6%; /* Increased from 68% by 20% (68% * 1.2 = 81.6%) */
+}
+
+.ecg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #eee;
+}
+
+.ecg-header h3 {
+  margin: 0;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+.ecg-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.zoom-btn {
+  padding: 3px 8px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 0.7rem;
+  transition: background-color 0.2s;
+}
+
+.zoom-btn:hover {
+  background-color: #1565c0;
+}
+
+.time-info {
+  font-size: 0.7rem;
+  color: #666;
+  margin-left: 5px;
+}
+
+.ecg-chart-wrapper {
+  width: 100%;
+  height: 180px;
+  min-height: 180px;
+  min-width: 250px;
+  background-color: #fff;
+  background-image: 
+    linear-gradient(#fdd 0.5px, transparent 0.5px),
+    linear-gradient(90deg, #fdd 0.5px, transparent 0.5px),
+    linear-gradient(#faa 1px, transparent 1px),
+    linear-gradient(90deg, #faa 1px, transparent 1px);
+  background-size: 1mm 1mm, 1mm 1mm, 5mm 5mm, 5mm 5mm;
+  position: relative;
+  /* Standard ECG paper: 25mm/sec horizontal, 10mm/mV vertical */
+}
+
+.ecg-scrollbar {
+  width: 100%;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.ecg-mini-chart {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  min-width: 100px;
+  min-height: 20px;
+  pointer-events: none;
+  background-color: #fafafa;
+}
+
+.ecg-scrollbar-thumb {
+  position: absolute;
+  height: 100%;
+  background-color: rgba(25, 118, 210, 0.3);
+  border: 2px solid #1976d2;
+  border-radius: 4px;
+  cursor: grab;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.ecg-scrollbar-thumb:hover {
+  background-color: rgba(25, 118, 210, 0.4);
+  border-color: #1565c0;
+}
+
+.ecg-scrollbar-thumb:active {
+  cursor: grabbing;
+  background-color: rgba(13, 71, 161, 0.5);
+  border-color: #0d47a1;
+}
+
+/* ECG Grid styling to match medical ECG paper */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: #e8a5a5;
+  stroke-width: 0.5;
+}
+
+/* Override recharts default styles */
+.recharts-cartesian-grid line {
+  stroke-opacity: 1;
+}
