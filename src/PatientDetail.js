@@ -15,7 +15,7 @@ function PatientDetail() {
     try {
       setLoading(true);
       setError(null);
-      const response = await fetch(`http://localhost:8000/api/fetchdata/${patientId}`);
+      const response = await fetch(`https://trifetch-backend.onrender.com/api/fetchdata/${patientId}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

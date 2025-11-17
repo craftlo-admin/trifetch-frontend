@@ -19,12 +19,6 @@ function ECGChart({ ecgData, channelName, samplingRate = 200 }) {
     value: point
   }));
 
-  // Mini chart data - downsample for performance (show every 10th point)
-  const miniChartData = ecgData.filter((_, index) => index % 10 === 0).map((point, index) => ({
-    index: index,
-    value: point
-  }));
-
   // Calculate scrollbar dimensions
   const scrollbarWidth = scrollbarRef.current ? scrollbarRef.current.offsetWidth : 1000;
   const thumbWidth = Math.max((visibleSamples / totalSamples) * scrollbarWidth, 30);
@@ -119,7 +113,10 @@ function ECGChart({ ecgData, channelName, samplingRate = 200 }) {
         <div className="ecg-mini-chart">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart 
-              data={miniChartData}
+              data={ecgData.filter((_, index) => index % 10 === 0).map((point, index) => ({
+                index: index,
+                value: point
+              }))}
               margin={{ top: 2, right: 2, left: 2, bottom: 2 }}
             >
               <YAxis 

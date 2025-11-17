@@ -21,7 +21,7 @@ function Dashboard() {
       setLoading(true);
       setError(null);
       const offset = (page - 1) * limitValue;
-      const response = await fetch(`http://localhost:8000/api/fetchdata?limit=${limitValue}&offset=${offset}`);
+      const response = await fetch(`https://trifetch-backend.onrender.com/api/fetchdata?limit=${limitValue}&offset=${offset}`);
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
