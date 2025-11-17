@@ -185,7 +185,11 @@ function Dashboard() {
                         </span>
                       </td>
                       <td>{item.device}</td>
-                      <td>{item.event}</td>
+                      <td>
+                        <span className={item.is_rejected === "1" ? "event-rejected" : "event-accepted"}>
+                          {item.predicted_event || item.event}
+                        </span>
+                      </td>
                       <td>{item.event_time}</td>
                       <td>{item.time_in_queue} days</td>
                       <td>{item.technician}</td>

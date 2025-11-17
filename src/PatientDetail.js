@@ -68,21 +68,52 @@ function PatientDetail() {
           
           {!loading && !error && data && patientId && (
             <div className="patient-detail-box">
-              <div className="ecg-charts">
-                {data.ecg_data && data.ecg_data.length > 0 && (
-                  <>
-                    <ECGChart 
-                      ecgData={data.ecg_data.map(d => d.value1)}
-                      channelName="Lead I"
-                      samplingRate={200}
-                    />
-                    <ECGChart 
-                      ecgData={data.ecg_data.map(d => d.value2)}
-                      channelName="Lead II"
-                      samplingRate={200}
-                    />
-                  </>
-                )}
+              <div className="patient-info-header">
+                <div className="patient-info-left">
+                  <div className="info-item">
+                    <span className="info-label">Patient ID:</span>
+                    <span className="info-value">{data.patient_id}</span>
+                  </div>
+                  <div className="info-item">
+                    <span className="info-label">Event Time:</span>
+                    <span className="info-value">{data.event_time}</span>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="ecg-charts-layout">
+                <div className="ecg-charts">
+                  {data.ecg_data && data.ecg_data.length > 0 && (
+                    <>
+                      <ECGChart 
+                        ecgData={data.ecg_data.map(d => d.value1)}
+                        channelName="Lead I"
+                        samplingRate={200}
+                      />
+                      <ECGChart 
+                        ecgData={data.ecg_data.map(d => d.value2)}
+                        channelName="Lead II"
+                        samplingRate={200}
+                      />
+                    </>
+                  )}
+                </div>
+                <div className="ecg-side-info">
+                  <div className="category-badge">
+                    <span className="category-label">Category</span>
+                    <span className="category-value">{data.category_predicted}</span>
+                  </div>
+                  <div className="event-start-badge">
+                    <span className="event-start-label">Event Start</span>
+                    <span className="event-start-value">{data.event_start_second}s</span>
+                  </div>
+                  <div className={`rejection-badge ${data.is_rejected === "1" ? "rejected" : "accepted"}`}>
+                    <span className="rejection-label">Status</span>
+                    <span className="rejection-value">
+                      {data.is_rejected === "1" ? "Rejected" : "Accepted"}
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           )}

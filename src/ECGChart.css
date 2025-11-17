@@ -5,7 +5,7 @@
   border-radius: 4px;
   padding: 8px;
   min-width: 240px;
-  width: 81.6%; /* Increased from 68% by 20% (68% * 1.2 = 81.6%) */
+  width: 100%;
 }
 
 .ecg-header {
